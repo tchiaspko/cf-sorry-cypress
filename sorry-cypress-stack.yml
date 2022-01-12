@@ -11,12 +11,12 @@ Parameters:
 
   TaskCpu:
     Type: Number
-    Default: 1024
+    Default: 2048
     Description: How much CPU to give the task. 1024 is 1 CPU
 
   TaskMemory:
     Type: Number
-    Default: 2048
+    Default: 4096
     Description: How much memory in megabytes to give the task
 
   DirectorPort:
@@ -410,7 +410,7 @@ Resources:
               Value: sorry-cypress
           Name: mongo
 
-        - Image: docker.io/agoldis/sorry-cypress-director
+        - Image: docker.io/agoldis/sorry-cypress-director:1.1
           Essential: true
           PortMappings:
             - ContainerPort: 1234
@@ -440,7 +440,7 @@ Resources:
               Condition: START
           Name: director
 
-        - Image: docker.io/agoldis/sorry-cypress-api
+        - Image: docker.io/agoldis/sorry-cypress-api:1.1
           PortMappings:
             - ContainerPort: 4000
           LogConfiguration:
@@ -459,7 +459,7 @@ Resources:
               Condition: START
           Name: api
 
-        - Image: docker.io/agoldis/sorry-cypress-dashboard
+        - Image: docker.io/agoldis/sorry-cypress-dashboard:1.1
           PortMappings:
             - ContainerPort: 8080
           LogConfiguration:
